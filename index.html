@@ -300,19 +300,15 @@
         }
 
         function loadImages() {
-            fetch('images/')
-                .then(response => response.text())
-                .then(text => {
-                    const parser = new DOMParser();
-                    const doc = parser.parseFromString(text, 'text/html');
-                    const links = Array.from(doc.querySelectorAll('a'))
-                        .filter(a => a.href.toLowerCase().endsWith('.jpg'))
-                        .map(a => decodeURIComponent(a.href.split('/').pop()));
-                    
+            // 首先尝试从images.json加载图片列表
+            fetch('images.json')
+                .then(response => response.json())
+                .then(imagePaths => {
                     const gallery = document.getElementById('gallery');
                     gallery.innerHTML = '';
                     
-                    links.forEach(filename => {
+                    imagePaths.forEach(imagePath => {
+                        const filename = imagePath.split('/').pop();
                         const imagePath = `images/${filename}`;
                         const imageCard = document.createElement('div');
                         imageCard.className = 'image-card';
