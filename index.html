@@ -89,8 +89,8 @@
 
     <script>
         function loadImages() {
-            // 直接加载已知的图片
-            const images = ['1620.jpg'];
+            // 更新图片列表，包含所有图片
+            const images = ['1620.jpg', '装饰椅 3144  20000元.jpg'];
             const gallery = document.getElementById('gallery');
 
             try {
@@ -100,36 +100,28 @@
                     
                     const imageContainer = document.createElement('div');
                     imageContainer.className = 'image-container';
-                    
+
                     const img = document.createElement('img');
-                    img.src = `images/${fileName}`;
+                    // 使用encodeURIComponent处理文件名中的特殊字符
+                    img.src = `images/${encodeURIComponent(fileName)}`;
                     img.alt = fileName;
-                    img.loading = 'lazy';
-                    img.onerror = () => {
-                        console.error(`Failed to load image: ${fileName}`);
-                        const errorTriangle = document.createElement('div');
-                        errorTriangle.style.width = '100%';
-                        errorTriangle.style.height = '100%';
-                        errorTriangle.style.backgroundColor = '#ffa500';
-                        errorTriangle.style.display = 'flex';
-                        errorTriangle.style.alignItems = 'center';
-                        errorTriangle.style.justifyContent = 'center';
-                        errorTriangle.innerHTML = '<span style="color: black; font-size: 2em;">!</span>';
-                        img.parentElement.appendChild(errorTriangle);
-                        img.style.display = 'none';
-                    };
                     
-                    const name = document.createElement('div');
-                    name.className = 'image-name';
-                    name.textContent = fileName;
+                    // 添加图片加载错误处理
+                    img.onerror = () => {
+                        img.src = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 100"><text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" font-family="sans-serif" font-size="14">图片加载失败</text></svg>';
+                    };
+
+                    const nameDiv = document.createElement('div');
+                    nameDiv.className = 'image-name';
+                    nameDiv.textContent = fileName;
 
                     imageContainer.appendChild(img);
                     card.appendChild(imageContainer);
-                    card.appendChild(name);
+                    card.appendChild(nameDiv);
                     gallery.appendChild(card);
                 });
             } catch (error) {
-                console.error('Error loading images:', error);
+                console.error('加载图片时发生错误:', error);
             }
         }
 
