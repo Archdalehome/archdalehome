@@ -1,5 +1,5 @@
 [build]
-command = "node build.config.js"
+command = "node build_cloudflare.js && node build.config.js"
 publish = "./"
 
 [build.environment]

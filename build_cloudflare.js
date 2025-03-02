@@ -74,7 +74,7 @@ function getImageFiles() {
     console.error('Error reading images directory:', error);
     console.error('Current working directory:', process.cwd());
     console.error('Attempted to read directory:', path.resolve(imageDir));
-    process.exit(1);
+    return [];
   }
   
   return images;
@@ -96,7 +96,7 @@ function updateImagesJson() {
     console.error('Error updating images.json:', error);
     console.error('Current working directory:', process.cwd());
     console.error('Generated data:', JSON.stringify(data, null, 2));
-    process.exit(1);
+    return;
   }
 }
 
