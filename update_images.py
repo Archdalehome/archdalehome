@@ -8,22 +8,42 @@ def get_image_files():
     images = []
     for filename in os.listdir(image_dir):
         if filename.lower().endswith((".jpg", ".jpeg", ".png", ".gif")):
-            # 从文件名中提取价格信息
-            price_match = re.search(r'【(.+?)元】|\s+(\d+)\s*元', filename)
-            price = price_match.group(1) or price_match.group(2) if price_match else ''
-            
-            # 从文件名中提取标题（移除价格部分）
+                    # 从文件名中提取价格信息
+            price = ''
             title = filename
+            size = ''
+            
+            # 1. 提取价格信息
+            price_patterns = [
+                r'【(\d[\d,]*)元】',
+                r'\s+(\d[\d,]*)\s*元(?![^\(\)]*\))',
+                r'\s+Price\s+(\d[\d,]*)\s*RMB'
+            ]
+            
+            for pattern in price_patterns:
+                match = re.search(pattern, title)
+                if match:
+                    price = match.group(1).replace(',', '')
+                    title = re.sub(pattern, '', title)
+                    break
+            
+            # 2. 提取尺寸信息
+            size_match = re.search(r'\(((?![\d,]+元)[^\)]+)\)', title)
+            if size_match:
+                size = size_match.group(1).strip()
+                title = re.sub(r'\([^\)]+\)', '', title)
+            
+            # 3. 清理和格式化标题
             title = re.sub(r'\.(jpg|jpeg|png|gif)$', '', title, flags=re.I)
-            title = re.sub(r'【.+?元】', '', title)
-            title = re.sub(r'\s+\d+\s*元', '', title)
+            title = re.sub(r'\s+', ' ', title)
             title = title.strip()
             
             images.append({
                 "path": os.path.join(image_dir, filename).replace("\\", "/"),
                 "name": filename,
                 "title": title,
-                "price": price
+                "price": price,
+                "size": size
             })
     return images
 

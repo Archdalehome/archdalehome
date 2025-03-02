@@ -198,7 +198,7 @@
             transform: scale(1.05);
         }
 
-        .image-name {
+        .title {
             padding: 10px;
             text-align: center;
             color: #333;
@@ -206,6 +206,17 @@
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
+        }
+
+        .image-info {
+            padding: 0 10px 10px;
+            text-align: center;
+            color: #666;
+            font-size: 12px;
+        }
+
+        .price, .size {
+            margin-top: 5px;
         }
 
         @media (max-width: 1024px) {
@@ -309,7 +320,6 @@
             
             images.forEach(imageData => {
                 const imagePath = imageData.path;
-                const filename = decodeURIComponent(imagePath.split('/').pop());
                 const imageCard = document.createElement('div');
                 imageCard.className = 'image-card';
                 
@@ -318,16 +328,34 @@
                 
                 const img = document.createElement('img');
                 img.src = imagePath;
-                img.alt = filename;
+                img.alt = imageData.title || '';
                 img.onclick = () => showFullscreen(imagePath);
                 
-                const imageName = document.createElement('div');
-                imageName.className = 'image-name';
-                imageName.textContent = filename;
+                const imageInfo = document.createElement('div');
+                imageInfo.className = 'image-info';
+                
+                const title = document.createElement('div');
+                title.className = 'title';
+                title.textContent = imageData.title || '';
+                
+                if (imageData.price) {
+                    const price = document.createElement('div');
+                    price.className = 'price';
+                    price.textContent = `价格：${imageData.price}元`;
+                    imageInfo.appendChild(price);
+                }
+                
+                if (imageData.size) {
+                    const size = document.createElement('div');
+                    size.className = 'size';
+                    size.textContent = `尺寸：${imageData.size}`;
+                    imageInfo.appendChild(size);
+                }
                 
                 imageContainer.appendChild(img);
                 imageCard.appendChild(imageContainer);
-                imageCard.appendChild(imageName);
+                imageCard.appendChild(title);
+                imageCard.appendChild(imageInfo);
                 gallery.appendChild(imageCard);
             });
         }
