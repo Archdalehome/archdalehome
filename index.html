@@ -89,42 +89,55 @@
 
     <script>
         function loadImages() {
-            // 更新图片列表，包含所有图片
-            const images = ['1620.jpg', '装饰椅 3144  20000元.jpg'];
-            const gallery = document.getElementById('gallery');
-
-            try {
-                images.forEach(fileName => {
-                    const card = document.createElement('div');
-                    card.className = 'image-card';
+            // 使用fetch API获取images目录的文件列表
+            fetch('/images/')
+                .then(response => response.text())
+                .then(html => {
+                    // 解析HTML响应以获取文件列表
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(html, 'text/html');
+                    const links = Array.from(doc.querySelectorAll('a'));
                     
-                    const imageContainer = document.createElement('div');
-                    imageContainer.className = 'image-container';
+                    // 过滤出图片文件
+                    const images = links
+                        .map(link => link.href)
+                        .filter(href => href.match(/\.(jpg|jpeg|png|gif)$/i))
+                        .map(href => decodeURIComponent(href.split('/').pop()));
 
-                    const img = document.createElement('img');
-                    // 使用encodeURIComponent处理文件名中的特殊字符
-                    img.src = `images/${encodeURIComponent(fileName)}`;
-                    img.alt = fileName;
-                    
-                    // 添加图片加载错误处理
-                    img.onerror = () => {
-                        img.src = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 100"><text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" font-family="sans-serif" font-size="14">图片加载失败</text></svg>';
-                    };
+                    const gallery = document.getElementById('gallery');
+                    gallery.innerHTML = ''; // 清空现有内容
 
-                    const nameDiv = document.createElement('div');
-                    nameDiv.className = 'image-name';
-                    nameDiv.textContent = fileName;
+                    images.forEach(fileName => {
+                        const card = document.createElement('div');
+                        card.className = 'image-card';
+                        
+                        const imageContainer = document.createElement('div');
+                        imageContainer.className = 'image-container';
 
-                    imageContainer.appendChild(img);
-                    card.appendChild(imageContainer);
-                    card.appendChild(nameDiv);
-                    gallery.appendChild(card);
+                        const img = document.createElement('img');
+                        img.src = `images/${encodeURIComponent(fileName)}`;
+                        img.alt = fileName;
+                        
+                        img.onerror = () => {
+                            img.src = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 100"><text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" font-family="sans-serif" font-size="14">图片加载失败</text></svg>';
+                        };
+
+                        const nameDiv = document.createElement('div');
+                        nameDiv.className = 'image-name';
+                        nameDiv.textContent = fileName;
+
+                        imageContainer.appendChild(img);
+                        card.appendChild(imageContainer);
+                        card.appendChild(nameDiv);
+                        gallery.appendChild(card);
+                    });
+                })
+                .catch(error => {
+                    console.error('加载图片列表时发生错误:', error);
                 });
-            } catch (error) {
-                console.error('加载图片时发生错误:', error);
-            }
         }
 
+        // 页面加载时获取图片列表
         window.addEventListener('load', loadImages);
     </script>
 </body>
