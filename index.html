@@ -5,6 +5,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Archdale Home</title>
     <style>
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f5f5f5;
+        }
+
+        .login-box {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 320px;
+        }
+
+        .login-title {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+            font-size: 24px;
+        }
+
+        .login-form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+
+        .login-form button {
+            width: 100%;
+            padding: 12px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.2s;
+        }
+
+        .login-form button:hover {
+            background-color: #444;
+        }
+
+        .login-error {
+            color: #ff4444;
+            text-align: center;
+            margin-bottom: 15px;
+            display: none;
+        }
+
+        .main-content {
+            display: none;
+        }
         .nav-bar {
             background-color: white;
             padding: 15px 20px;
@@ -176,6 +236,19 @@
     </style>
 </head>
 <body>
+    <div class="login-container" id="loginContainer">
+        <div class="login-box">
+            <h2 class="login-title">Archdale Home</h2>
+            <div class="login-error" id="loginError">用户名或密码错误</div>
+            <form class="login-form" id="loginForm" onsubmit="return handleLogin(event)">
+                <input type="text" id="username" placeholder="用户名" required>
+                <input type="password" id="password" placeholder="密码" required>
+                <button type="submit">登录</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="main-content" id="mainContent">
     <div class="nav-bar">
         <span>
             <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -282,5 +355,44 @@
     <footer class="footer">
         © 2025 Archdale Home
     </footer>
+    </div>
+
+    <script>
+        // 检查登录状态
+        function checkLoginStatus() {
+            const isLoggedIn = sessionStorage.getItem('isLoggedIn');
+            const loginContainer = document.getElementById('loginContainer');
+            const mainContent = document.getElementById('mainContent');
+
+            if (isLoggedIn === 'true') {
+                loginContainer.style.display = 'none';
+                mainContent.style.display = 'block';
+                loadImages(); // 加载图片
+            } else {
+                loginContainer.style.display = 'flex';
+                mainContent.style.display = 'none';
+            }
+        }
+
+        // 处理登录
+        function handleLogin(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const loginError = document.getElementById('loginError');
+
+            if (username === 'Partner' && password === '01083810') {
+                sessionStorage.setItem('isLoggedIn', 'true');
+                checkLoginStatus();
+                loginError.style.display = 'none';
+            } else {
+                loginError.style.display = 'block';
+                sessionStorage.removeItem('isLoggedIn');
+            }
+        }
+
+        // 页面加载时检查登录状态
+        window.addEventListener('load', checkLoginStatus);
+    </script>
 </body>
 </html>
