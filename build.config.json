@@ -1,0 +1,5 @@
+{
+  "buildCommand": "node build_cloudflare.js",
+  "outputDirectory": ".",
+  "framework": "none"
+}
