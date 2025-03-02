@@ -2,31 +2,45 @@
   "images": [
     {
       "path": "images/二人人沙发　1620   【12500元】.jpg",
-      "name": "二人人沙发　1620   【12500元】.jpg"
+      "name": "二人人沙发　1620   【12500元】.jpg",
+      "title": "二人人沙发　1620",
+      "price": "12500"
     },
     {
       "path": "images/沙发 1702  (220v98x85cm)  【29999元】.jpg",
-      "name": "沙发 1702  (220v98x85cm)  【29999元】.jpg"
+      "name": "沙发 1702  (220v98x85cm)  【29999元】.jpg",
+      "title": "沙发 1702  (220v98x85cm)",
+      "price": "29999"
     },
     {
       "path": "images/沙发 1801C Price 12000 RMB.jpg",
-      "name": "沙发 1801C Price 12000 RMB.jpg"
+      "name": "沙发 1801C Price 12000 RMB.jpg",
+      "title": "沙发 1801C Price 12000 RMB",
+      "price": ""
     },
     {
       "path": "images/装饰椅 3144  20000元.jpg",
-      "name": "装饰椅 3144  20000元.jpg"
+      "name": "装饰椅 3144  20000元.jpg",
+      "title": "装饰椅 3144",
+      "price": "20000"
     },
     {
       "path": "images/装饰椅-4511   【12500元】.jpg",
-      "name": "装饰椅-4511   【12500元】.jpg"
+      "name": "装饰椅-4511   【12500元】.jpg",
+      "title": "装饰椅-4511",
+      "price": "12500"
     },
     {
       "path": "images/餐桌-9085(橡木)   19800元.jpg",
-      "name": "餐桌-9085(橡木)   19800元.jpg"
+      "name": "餐桌-9085(橡木)   19800元.jpg",
+      "title": "餐桌-9085(橡木)",
+      "price": "19800"
     },
     {
       "path": "images/餐椅(麻布印花)   1999 元.jpg",
-      "name": "餐椅(麻布印花)   1999 元.jpg"
+      "name": "餐椅(麻布印花)   1999 元.jpg",
+      "title": "餐椅(麻布印花)",
+      "price": "1999"
     }
   ]
 }
