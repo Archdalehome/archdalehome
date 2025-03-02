@@ -88,19 +88,12 @@
     </div>
 
     <script>
-        async function loadImages() {
-            try {
-                const response = await fetch('/images/');
-                const text = await response.text();
-                const parser = new DOMParser();
-                const doc = parser.parseFromString(text, 'text/html');
-                const links = Array.from(doc.querySelectorAll('a'))
-                    .filter(a => a.href.match(/\.(jpg|jpeg|png|gif|webp)$/i))
-                    .map(a => a.href);
+        function loadImages() {
+            // 直接加载已知的图片
+            const images = ['1620.jpg'];
+            const gallery = document.getElementById('gallery');
 
-                const gallery = document.getElementById('gallery');
-                links.forEach(link => {
-                    const fileName = decodeURIComponent(link.split('/').pop());
+            images.forEach(fileName => {
                     const card = document.createElement('div');
                     card.className = 'image-card';
                     
@@ -108,7 +101,7 @@
                     imageContainer.className = 'image-container';
                     
                     const img = document.createElement('img');
-                    img.src = link;
+                    img.src = `images/${fileName}`;
                     img.alt = fileName;
                     img.loading = 'lazy';
                     
