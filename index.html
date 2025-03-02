@@ -301,7 +301,7 @@
 
         function loadImages() {
             // 从服务器获取图片列表
-            fetch('./images/?t=' + new Date().getTime())
+            fetch('/images/')
                 .then(response => response.text())
                 .then(html => {
                     // 使用DOMParser解析返回的HTML
@@ -311,7 +311,7 @@
                     const images = Array.from(doc.querySelectorAll('a'))
                         .map(a => a.getAttribute('href'))
                         .filter(href => href && href.match(/\.(jpg|jpeg|png|gif)$/i))
-                        .map(href => './images/' + href);
+                        .map(href => '/images/' + href);
                     const gallery = document.getElementById('gallery');
                     gallery.innerHTML = '';
                     images.forEach(imagePath => {
@@ -322,7 +322,7 @@
                         imageContainer.className = 'image-container';
                         
                         const imgElement = document.createElement('img');
-                        imgElement.src = imagePath + '?t=' + new Date().getTime();
+                        imgElement.src = imagePath;
                         imgElement.alt = imagePath.split('/').pop();
                         imgElement.onclick = () => showFullscreen(imgElement.src);
                         
