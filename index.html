@@ -311,7 +311,7 @@
                     const images = Array.from(doc.querySelectorAll('a'))
                         .map(a => a.getAttribute('href'))
                         .filter(href => href && href.match(/\.(jpg|jpeg|png|gif)$/i))
-                        .map(href => '/images/' + href);
+                        .map(href => './images/' + href);
                     const gallery = document.getElementById('gallery');
                     gallery.innerHTML = '';
                     images.forEach(imagePath => {
