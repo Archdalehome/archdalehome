@@ -89,20 +89,13 @@
 
     <script>
         function loadImages() {
-            // 使用fetch API获取images目录的文件列表
-            fetch('/images/')
-                .then(response => response.text())
-                .then(html => {
-                    // 解析HTML响应以获取文件列表
-                    const parser = new DOMParser();
-                    const doc = parser.parseFromString(html, 'text/html');
-                    const links = Array.from(doc.querySelectorAll('a'));
-                    
-                    // 过滤出图片文件
-                    const images = links
-                        .map(link => link.href)
-                        .filter(href => href.match(/\.(jpg|jpeg|png|gif)$/i))
-                        .map(href => decodeURIComponent(href.split('/').pop()));
+            // 直接定义图片列表
+            const images = [
+                '1620.jpg',
+                '1702-Grey.jpg',
+                'SKU 1801C Price 12000 RMB.jpg',
+                '装饰椅 3144  20000元.jpg'
+            ];
 
                     const gallery = document.getElementById('gallery');
                     gallery.innerHTML = ''; // 清空现有内容
