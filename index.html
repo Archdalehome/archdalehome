@@ -102,12 +102,21 @@
                     imageContainer.className = 'image-container';
                     
                     const img = document.createElement('img');
-                    img.src = `/${fileName}`;
+                    img.src = `images/${fileName}`;
                     img.alt = fileName;
                     img.loading = 'lazy';
                     img.onerror = () => {
                         console.error(`Failed to load image: ${fileName}`);
-                        img.src = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">⚠️</text></svg>';
+                        const errorTriangle = document.createElement('div');
+                        errorTriangle.style.width = '100%';
+                        errorTriangle.style.height = '100%';
+                        errorTriangle.style.backgroundColor = '#ffa500';
+                        errorTriangle.style.display = 'flex';
+                        errorTriangle.style.alignItems = 'center';
+                        errorTriangle.style.justifyContent = 'center';
+                        errorTriangle.innerHTML = '<span style="color: black; font-size: 2em;">!</span>';
+                        img.parentElement.appendChild(errorTriangle);
+                        img.style.display = 'none';
                     };
                     
                     const name = document.createElement('div');
