@@ -5,6 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>图片展示</title>
     <style>
+        .nav-bar {
+            background-color: white;
+            padding: 15px 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            font-size: 16px;
+            color: #333;
+        }
+
+        .nav-bar span {
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .nav-bar .menu-icon {
+            margin-right: 10px;
+            cursor: pointer;
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            padding: 4px;
+            border-radius: 4px;
+        }
+
+        .nav-bar .menu-icon:hover {
+            background-color: #f5f5f5;
+        }
+
         body {
             margin: 0;
             padding: 20px;
@@ -102,9 +130,27 @@
                 width: 100%;
             }
         }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            color: #666;
+            font-size: 14px;
+        }
     </style>
 </head>
 <body>
+    <div class="nav-bar">
+        <span>
+            <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+            Archdale Home/Our Products
+        </span>
+    </div>
     <div class="container">
         <div class="gallery" id="gallery"></div>
     </div>
@@ -131,44 +177,45 @@
                 'images/1620.jpg',
                 'images/1702-Grey.jpg',
                 'images/SKU 1801C Price 12000 RMB.jpg',
-                'images/装饰椅 3144  20000元.jpg'
+                'images/装饰椅 3144  20000元.jpg',
+                'images/装饰椅-4511   【12500元】.jpg'
             ];
 
             const gallery = document.getElementById('gallery');
-                    gallery.innerHTML = ''; // 清空现有内容
+            gallery.innerHTML = ''; // 清空现有内容
 
-                    images.forEach(fileName => {
-                        const card = document.createElement('div');
-                        card.className = 'image-card';
-                        
-                        const imageContainer = document.createElement('div');
-                        imageContainer.className = 'image-container';
+            images.forEach(fileName => {
+                const card = document.createElement('div');
+                card.className = 'image-card';
+                
+                const imageContainer = document.createElement('div');
+                imageContainer.className = 'image-container';
 
-                        const img = document.createElement('img');
-                        img.src = fileName;
-                        img.alt = fileName.split('/').pop();
-                        
-                        img.onerror = () => {
-                            console.error(`Failed to load image: ${fileName}`);
-                            card.remove(); // 直接移除整个卡片元素
-                        };
+                const img = document.createElement('img');
+                img.src = fileName;
+                img.alt = fileName.split('/').pop();
+                
+                img.onerror = () => {
+                    console.error(`图片加载失败: ${fileName}`);
+                    imageContainer.innerHTML = `<div style="height: 100%; display: flex; align-items: center; justify-content: center; background: #f8f8f8; color: #666;">图片加载失败</div>`;
+                };
 
-                        // 添加点击事件处理
-                        img.addEventListener('click', () => {
-                            showFullscreen(fileName);
-                        });
+                // 添加点击事件处理
+                img.addEventListener('click', () => {
+                    showFullscreen(fileName);
+                });
 
-                        const nameDiv = document.createElement('div');
-                        nameDiv.className = 'image-name';
-                        // 移除'images/'前缀和'.jpg'后缀，只显示主文件名
-                        const displayName = fileName.replace('images/', '').replace('.jpg', '');
-                        nameDiv.textContent = displayName;
+                const nameDiv = document.createElement('div');
+                nameDiv.className = 'image-name';
+                // 移除'images/'前缀和'.jpg'后缀，只显示主文件名
+                const displayName = fileName.replace('images/', '').replace('.jpg', '');
+                nameDiv.textContent = displayName;
 
-                        imageContainer.appendChild(img);
-                        card.appendChild(imageContainer);
-                        card.appendChild(nameDiv);
-                        gallery.appendChild(card);
-                    });
+                imageContainer.appendChild(img);
+                card.appendChild(imageContainer);
+                card.appendChild(nameDiv);
+                gallery.appendChild(card);
+            });
         }
 
         // 页面加载时获取图片列表
@@ -177,5 +224,8 @@
         // 添加全屏容器的点击事件
         document.getElementById('fullscreenContainer').addEventListener('click', hideFullscreen);
     </script>
+    <footer class="footer">
+        © 2025 Archdale Home
+    </footer>
 </body>
 </html>
