@@ -21,8 +21,11 @@ function getImageFiles() {
                             .replace(/\s+\d+\s*元/, '')
                             .trim();
         
+        // 使用正斜杠作为路径分隔符，确保在Cloudflare Pages环境中正常工作
+        const imagePath = `${imageDir}/${filename}`;
+        
         images.push({
-          path: path.join(imageDir, filename).replace(/\\/g, '/'),
+          path: imagePath,
           name: filename,
           title: title,
           price: price
@@ -31,6 +34,7 @@ function getImageFiles() {
     }
   } catch (error) {
     console.error('Error reading images directory:', error);
+    process.exit(1);
   }
   
   return images;
@@ -55,4 +59,6 @@ function updateImagesJson() {
 }
 
 // 执行更新
+console.log('Starting Cloudflare build process...');
 updateImagesJson();
+console.log('Cloudflare build process completed!');
