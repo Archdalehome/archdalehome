@@ -1,9 +1,10 @@
 {
-  "name": "archdalehome",
+  "name": "archdalehome.com",
   "version": "1.0.0",
   "description": "Archdale Home Website",
+  "main": "index.html",
   "scripts": {
-    "build": "node build.js"
+    "build": "node build_cloudflare.js"
   },
   "dependencies": {},
   "devDependencies": {}
