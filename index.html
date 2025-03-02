@@ -300,11 +300,10 @@
         }
 
         function loadImages() {
-            // 直接从服务器获取images目录的内容
+            // 首先尝试使用目录列表方式加载图片
             fetch('/images/')
                 .then(response => response.text())
                 .then(html => {
-                    // 解析HTML响应以获取图片列表
                     const parser = new DOMParser();
                     const doc = parser.parseFromString(html, 'text/html');
                     const links = Array.from(doc.querySelectorAll('a'));
@@ -315,7 +314,7 @@
 
                     const gallery = document.getElementById('gallery');
                     gallery.innerHTML = '';
-                    
+
                     images.forEach(imagePath => {
                         const filename = decodeURIComponent(imagePath.split('/').pop());
                         const imageCard = document.createElement('div');
@@ -339,7 +338,42 @@
                         gallery.appendChild(imageCard);
                     });
                 })
-                .catch(error => console.error('Error loading images:', error));
+                .catch(error => {
+                    console.log('Fallback to images.json');
+                    // 如果目录列表失败，回退到images.json方式
+                    fetch('/images.json')
+                        .then(response => response.json())
+                        .then(data => {
+                            const images = data.images;
+                            const gallery = document.getElementById('gallery');
+                            gallery.innerHTML = '';
+                            
+                            images.forEach(imageData => {
+                                const imagePath = imageData.path;
+                                const filename = decodeURIComponent(imagePath.split('/').pop());
+                                const imageCard = document.createElement('div');
+                                imageCard.className = 'image-card';
+                                
+                                const imageContainer = document.createElement('div');
+                                imageContainer.className = 'image-container';
+                                
+                                const img = document.createElement('img');
+                                img.src = imagePath;
+                                img.alt = filename;
+                                img.onclick = () => showFullscreen(imagePath);
+                                
+                                const imageName = document.createElement('div');
+                                imageName.className = 'image-name';
+                                imageName.textContent = filename;
+                                
+                                imageContainer.appendChild(img);
+                                imageCard.appendChild(imageContainer);
+                                imageCard.appendChild(imageName);
+                                gallery.appendChild(imageCard);
+                            });
+                        })
+                        .catch(error => console.error('Error loading images:', error));
+                });
         }
 
         // 页面加载时获取图片列表
