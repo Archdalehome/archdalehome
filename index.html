@@ -3,158 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Archdale Home</title>
+    <title>图片展示</title>
     <style>
-        .login-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background-color: #f5f5f5;
-        }
-
-        .login-box {
-            background: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            width: 100%;
-            max-width: 320px;
-        }
-
-        .login-title {
-            text-align: center;
-            margin-bottom: 20px;
-            color: #333;
-            font-size: 24px;
-        }
-
-        .login-form input {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 14px;
-            box-sizing: border-box;
-        }
-
-        .login-form button {
-            width: 100%;
-            padding: 12px;
-            background-color: #333;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.2s;
-        }
-
-        .login-form button:hover {
-            background-color: #444;
-        }
-
-        .login-error {
-            color: #ff4444;
-            text-align: center;
-            margin-bottom: 15px;
-            display: none;
-        }
-
-        .main-content {
-            display: none;
-        }
-        .nav-bar {
-            background-color: white;
-            padding: 15px 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            font-size: 16px;
-            color: #333;
-            position: relative;
-        }
-
-        .nav-bar span {
-            display: inline-flex;
-            align-items: center;
-        }
-
-        .nav-bar .menu-icon {
-            margin-right: 10px;
-            cursor: pointer;
-            display: inline-block;
-            width: 24px;
-            height: 24px;
-            padding: 4px;
-            border-radius: 4px;
-        }
-
-        .nav-bar .menu-icon:hover {
-            background-color: #f5f5f5;
-        }
-
-        .dropdown-menu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 20px;
-            background-color: white;
-            min-width: 180px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            border-radius: 4px;
-            z-index: 1000;
-            padding: 8px 0;
-        }
-
-        .dropdown-menu.show {
-            display: block;
-            animation: fadeIn 0.2s ease;
-        }
-
-        .dropdown-menu a {
-            display: block;
-            padding: 10px 20px;
-            color: #333;
-            text-decoration: none;
-            transition: background-color 0.2s;
-        }
-
-        .dropdown-menu a:hover {
-            background-color: #f5f5f5;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
         body {
             margin: 0;
             padding: 20px;
             background-color: #f5f5f5;
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        }
-
-        .fullscreen-container {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
-            z-index: 1000;
-            cursor: pointer;
-        }
-
-        .fullscreen-image {
-            max-width: 90%;
-            max-height: 90%;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            object-fit: contain;
         }
 
         .container {
@@ -225,174 +80,55 @@
                 width: 100%;
             }
         }
-
-        .footer {
-            text-align: center;
-            padding: 20px;
-            margin-top: 40px;
-            color: #666;
-            font-size: 14px;
-        }
     </style>
 </head>
 <body>
-    <div class="login-container" id="loginContainer">
-        <div class="login-box">
-            <h2 class="login-title">Archdale Home</h2>
-            <div class="login-error" id="loginError">用户名或密码错误</div>
-            <form class="login-form" id="loginForm" onsubmit="return handleLogin(event)">
-                <input type="text" id="username" placeholder="用户名" required>
-                <input type="password" id="password" placeholder="密码" required>
-                <button type="submit">登录</button>
-            </form>
-        </div>
-    </div>
-
-    <div class="main-content" id="mainContent">
-    <div class="nav-bar">
-        <span>
-            <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="3" y1="12" x2="21" y2="12"></line>
-                <line x1="3" y1="6" x2="21" y2="6"></line>
-                <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
-            Archdale Home
-        </span>
-        <div class="dropdown-menu" id="dropdownMenu">
-            <a href="#">About us</a>
-            <a href="#">Our Product</a>
-            <a href="#">Contact us</a>
-        </div>
-    </div>
     <div class="container">
         <div class="gallery" id="gallery"></div>
     </div>
-    <div class="fullscreen-container" id="fullscreenContainer">
-        <img class="fullscreen-image" id="fullscreenImage" alt="Fullscreen image">
-    </div>
 
     <script>
-        // 添加菜单切换功能
-        document.querySelector('.menu-icon').addEventListener('click', function(e) {
-            e.stopPropagation();
-            const dropdownMenu = document.getElementById('dropdownMenu');
-            dropdownMenu.classList.toggle('show');
-        });
-
-        // 点击页面其他地方关闭菜单
-        document.addEventListener('click', function() {
-            const dropdownMenu = document.getElementById('dropdownMenu');
-            if (dropdownMenu.classList.contains('show')) {
-                dropdownMenu.classList.remove('show');
-            }
-        });
-
-        function showFullscreen(imageSrc) {
-            const container = document.getElementById('fullscreenContainer');
-            const image = document.getElementById('fullscreenImage');
-            image.src = imageSrc;
-            container.style.display = 'block';
-        }
-
-        function hideFullscreen() {
-            const container = document.getElementById('fullscreenContainer');
-            container.style.display = 'none';
-        }
-
         function loadImages() {
             // 直接定义图片列表
             const images = [
                 'images/1620.jpg',
                 'images/1702-Grey.jpg',
                 'images/SKU 1801C Price 12000 RMB.jpg',
-                'images/装饰椅 3144  20000元.jpg',
-                'images/装饰椅-4511   【12500元】.jpg'
+                'images/装饰椅 3144  20000元.jpg'
             ];
 
             const gallery = document.getElementById('gallery');
-            gallery.innerHTML = ''; // 清空现有内容
+                    gallery.innerHTML = ''; // 清空现有内容
 
-            images.forEach(fileName => {
-                const card = document.createElement('div');
-                card.className = 'image-card';
-                
-                const imageContainer = document.createElement('div');
-                imageContainer.className = 'image-container';
+                    images.forEach(fileName => {
+                        const card = document.createElement('div');
+                        card.className = 'image-card';
+                        
+                        const imageContainer = document.createElement('div');
+                        imageContainer.className = 'image-container';
 
-                const img = document.createElement('img');
-                img.src = fileName;
-                img.alt = fileName.split('/').pop();
-                
-                img.onerror = () => {
-                    console.error(`图片加载失败: ${fileName}`);
-                    imageContainer.innerHTML = `<div style="height: 100%; display: flex; align-items: center; justify-content: center; background: #f8f8f8; color: #666;">图片加载失败</div>`;
-                };
+                        const img = document.createElement('img');
+                        img.src = fileName;
+                        img.alt = fileName.split('/').pop();
+                        
+                        img.onerror = () => {
+                            console.error(`Failed to load image: ${fileName}`);
+                            card.remove(); // 直接移除整个卡片元素
+                        };
 
-                // 添加点击事件处理
-                img.addEventListener('click', () => {
-                    showFullscreen(fileName);
-                });
+                        const nameDiv = document.createElement('div');
+                        nameDiv.className = 'image-name';
+                        nameDiv.textContent = fileName;
 
-                const nameDiv = document.createElement('div');
-                nameDiv.className = 'image-name';
-                // 移除'images/'前缀和'.jpg'后缀，只显示主文件名
-                const displayName = fileName.replace('images/', '').replace('.jpg', '');
-                nameDiv.textContent = displayName;
-
-                imageContainer.appendChild(img);
-                card.appendChild(imageContainer);
-                card.appendChild(nameDiv);
-                gallery.appendChild(card);
-            });
+                        imageContainer.appendChild(img);
+                        card.appendChild(imageContainer);
+                        card.appendChild(nameDiv);
+                        gallery.appendChild(card);
+                    });
         }
 
         // 页面加载时获取图片列表
         window.addEventListener('load', loadImages);
-
-        // 添加全屏容器的点击事件
-        document.getElementById('fullscreenContainer').addEventListener('click', hideFullscreen);
-    </script>
-    <footer class="footer">
-        © 2025 Archdale Home
-    </footer>
-    </div>
-
-    <script>
-        // 检查登录状态
-        function checkLoginStatus() {
-            const isLoggedIn = sessionStorage.getItem('isLoggedIn');
-            const loginContainer = document.getElementById('loginContainer');
-            const mainContent = document.getElementById('mainContent');
-
-            if (isLoggedIn === 'true') {
-                loginContainer.style.display = 'none';
-                mainContent.style.display = 'block';
-                loadImages(); // 加载图片
-            } else {
-                loginContainer.style.display = 'flex';
-                mainContent.style.display = 'none';
-            }
-        }
-
-        // 处理登录
-        function handleLogin(event) {
-            event.preventDefault();
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-            const loginError = document.getElementById('loginError');
-
-            if (username === 'Partner' && password === '01083810') {
-                sessionStorage.setItem('isLoggedIn', 'true');
-                checkLoginStatus();
-                loginError.style.display = 'none';
-            } else {
-                loginError.style.display = 'block';
-                sessionStorage.removeItem('isLoggedIn');
-            }
-        }
-
-        // 页面加载时检查登录状态
-        window.addEventListener('load', checkLoginStatus);
     </script>
 </body>
 </html>
