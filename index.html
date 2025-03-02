@@ -300,7 +300,7 @@
         }
 
         function loadImages() {
-            fetch('/images/')
+            fetch('images/')
                 .then(response => response.text())
                 .then(text => {
                     const parser = new DOMParser();
@@ -313,7 +313,7 @@
                     gallery.innerHTML = '';
                     
                     links.forEach(filename => {
-                        const imagePath = `/images/${filename}`;
+                        const imagePath = `images/${filename}`;
                         const imageCard = document.createElement('div');
                         imageCard.className = 'image-card';
                         
