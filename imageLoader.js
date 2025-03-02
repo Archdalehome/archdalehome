@@ -43,5 +43,5 @@ async function loadImagesFromJson() {
 
 // 导出加载函数
 export async function loadImages() {
-    return isLocalDev ? loadImagesFromDirectory() : loadImagesFromJson();
+    return loadImagesFromJson();
 }
