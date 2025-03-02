@@ -11,9 +11,21 @@ function getImageFiles() {
     
     for (const filename of files) {
       if (/\.(jpg|jpeg|png|gif)$/i.test(filename)) {
+        // 从文件名中提取价格信息
+        const priceMatch = filename.match(/【(.+?)元】|\s+(\d+)\s*元/i);
+        const price = priceMatch ? (priceMatch[1] || priceMatch[2]) : '';
+        
+        // 从文件名中提取标题（移除价格部分）
+        let title = filename.replace(/\.(jpg|jpeg|png|gif)$/i, '')
+                            .replace(/【.+?元】/, '')
+                            .replace(/\s+\d+\s*元/, '')
+                            .trim();
+        
         images.push({
           path: path.join(imageDir, filename).replace(/\\/g, '/'),
-          name: filename
+          name: filename,
+          title: title,
+          price: price
         });
       }
     }
