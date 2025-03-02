@@ -300,40 +300,39 @@
         }
 
         function loadImages() {
-            // 从服务器获取图片列表
             fetch('/images/')
                 .then(response => response.text())
-                .then(html => {
-                    // 使用DOMParser解析返回的HTML
+                .then(text => {
                     const parser = new DOMParser();
-                    const doc = parser.parseFromString(html, 'text/html');
-                    // 获取所有链接，过滤出图片文件
-                    const images = Array.from(doc.querySelectorAll('a'))
-                        .map(a => a.getAttribute('href'))
-                        .filter(href => href && href.match(/\.(jpg|jpeg|png|gif)$/i))
-                        .map(href => 'images/' + href);
+                    const doc = parser.parseFromString(text, 'text/html');
+                    const links = Array.from(doc.querySelectorAll('a'))
+                        .filter(a => a.href.toLowerCase().endsWith('.jpg'))
+                        .map(a => decodeURIComponent(a.href.split('/').pop()));
+                    
                     const gallery = document.getElementById('gallery');
                     gallery.innerHTML = '';
-                    images.forEach(imagePath => {
-                        const card = document.createElement('div');
-                        card.className = 'image-card';
+                    
+                    links.forEach(filename => {
+                        const imagePath = `images/${filename}`;
+                        const imageCard = document.createElement('div');
+                        imageCard.className = 'image-card';
                         
                         const imageContainer = document.createElement('div');
                         imageContainer.className = 'image-container';
                         
-                        const imgElement = document.createElement('img');
-                        imgElement.src = imagePath;
-                        imgElement.alt = imagePath.split('/').pop();
-                        imgElement.onclick = () => showFullscreen(imgElement.src);
+                        const img = document.createElement('img');
+                        img.src = imagePath;
+                        img.alt = filename;
+                        img.onclick = () => showFullscreen(imagePath);
                         
-                        const nameDiv = document.createElement('div');
-                        nameDiv.className = 'image-name';
-                        nameDiv.textContent = decodeURIComponent(imagePath.split('/').pop().replace('.jpg', ''));
+                        const imageName = document.createElement('div');
+                        imageName.className = 'image-name';
+                        imageName.textContent = filename;
                         
-                        imageContainer.appendChild(imgElement);
-                        card.appendChild(imageContainer);
-                        card.appendChild(nameDiv);
-                        gallery.appendChild(card);
+                        imageContainer.appendChild(img);
+                        imageCard.appendChild(imageContainer);
+                        imageCard.appendChild(imageName);
+                        gallery.appendChild(imageCard);
                     });
                 })
                 .catch(error => console.error('Error loading images:', error));
