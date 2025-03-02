@@ -11,21 +11,50 @@ function getImageFiles() {
     
     for (const filename of files) {
       if (/\.(jpg|jpeg|png|gif)$/i.test(filename)) {
-        // 从文件名中提取价格信息，支持多种格式
-        const priceMatch = filename.match(/【(.+?)元】|\s+(\d+)\s*元|\s+Price\s+(\d+)\s*RMB|\s+(\d+(?:,\d+)?)\s*元/i);
-        const price = priceMatch ? (priceMatch[1] || priceMatch[2] || priceMatch[3] || priceMatch[4]) : '';
+        console.log('\n处理文件:', filename);
         
-        // 从文件名中提取尺寸信息（如果有）
-        const sizeMatch = filename.match(/\((.*?)\)/i);
-        const size = sizeMatch ? sizeMatch[1] : '';
+        // 解析文件名的各个部分
+        let price = '';
+        let title = filename;
+        let size = '';
         
-        // 从文件名中提取标题（移除价格部分和尺寸部分）
-        let title = filename.replace(/\.(jpg|jpeg|png|gif)$/i, '')
-                            .replace(/【.+?元】/, '')
-                            .replace(/\s+\d+(?:,\d+)?\s*元/, '')
-                            .replace(/\s+Price\s+\d+\s*RMB/, '')
-                            .replace(/\(.*?\)/, '')
-                            .trim();
+        // 1. 提取并移除价格信息
+        const pricePatterns = [
+          { pattern: /【(\d[\d,]*)元】/, group: 1 },
+          { pattern: /\s+(\d[\d,]*)\s*元(?![^\(\)]*\))/, group: 1 },
+          { pattern: /\s+Price\s+(\d[\d,]*)\s*RMB/, group: 1 }
+        ];
+        
+        for (const { pattern, group } of pricePatterns) {
+          const match = title.match(pattern);
+          if (match) {
+            price = match[group].replace(/,/g, '');
+            title = title.replace(match[0], '');
+            console.log('找到价格:', price, '元');
+            break;
+          }
+        }
+        
+        // 2. 提取并移除尺寸信息
+        const sizeMatch = title.match(/\(((?![\d,]+元)[^\)]+)\)/);
+        if (sizeMatch) {
+          size = sizeMatch[1].trim();
+          title = title.replace(sizeMatch[0], '');
+          console.log('找到尺寸:', size);
+        }
+        
+        // 3. 清理和格式化标题
+        title = title
+          .replace(/\.(jpg|jpeg|png|gif)$/i, '')
+          .replace(/\s+/g, ' ')
+          .trim();
+        
+        console.log('处理后的标题:', title);
+        console.log('最终结果:', {
+          title: title,
+          price: price,
+          size: size
+        });
         
         // 确保在所有环境下都使用正确的路径格式
         const imagePath = path.join(imageDir, filename).replace(/\\/g, '/');
@@ -36,7 +65,8 @@ function getImageFiles() {
           path: imagePath,
           name: filename,
           title: title,
-          price: price
+          price: price,
+          size: size
         });
       }
     }
