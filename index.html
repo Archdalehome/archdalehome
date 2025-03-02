@@ -118,7 +118,9 @@
 
                         const nameDiv = document.createElement('div');
                         nameDiv.className = 'image-name';
-                        nameDiv.textContent = fileName;
+                        // 移除'images/'前缀和'.jpg'后缀，只显示主文件名
+                        const displayName = fileName.replace('images/', '').replace('.jpg', '');
+                        nameDiv.textContent = displayName;
 
                         imageContainer.appendChild(img);
                         card.appendChild(imageContainer);
