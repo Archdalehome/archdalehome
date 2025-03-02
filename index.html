@@ -93,7 +93,8 @@
             const images = ['1620.jpg'];
             const gallery = document.getElementById('gallery');
 
-            images.forEach(fileName => {
+            try {
+                images.forEach(fileName => {
                     const card = document.createElement('div');
                     card.className = 'image-card';
                     
@@ -101,9 +102,13 @@
                     imageContainer.className = 'image-container';
                     
                     const img = document.createElement('img');
-                    img.src = `images/${fileName}`;
+                    img.src = `/${fileName}`;
                     img.alt = fileName;
                     img.loading = 'lazy';
+                    img.onerror = () => {
+                        console.error(`Failed to load image: ${fileName}`);
+                        img.src = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">⚠️</text></svg>';
+                    };
                     
                     const name = document.createElement('div');
                     name.className = 'image-name';
