@@ -304,16 +304,19 @@
             fetch('/images/')
                 .then(response => response.text())
                 .then(html => {
+                    // 解析HTML响应以获取图片列表
                     const parser = new DOMParser();
                     const doc = parser.parseFromString(html, 'text/html');
-                    const links = Array.from(doc.querySelectorAll('a'))
-                        .filter(a => a.href.match(/\.(jpg|jpeg|png|gif)$/i))
-                        .map(a => '/images/' + a.getAttribute('href'));
+                    const links = Array.from(doc.querySelectorAll('a'));
+                    const images = links
+                        .map(link => link.getAttribute('href'))
+                        .filter(href => href && href.toLowerCase().endsWith('.jpg'))
+                        .map(href => `/images/${href}`);
 
                     const gallery = document.getElementById('gallery');
                     gallery.innerHTML = '';
                     
-                    links.forEach(imagePath => {
+                    images.forEach(imagePath => {
                         const filename = decodeURIComponent(imagePath.split('/').pop());
                         const imageCard = document.createElement('div');
                         imageCard.className = 'image-card';
