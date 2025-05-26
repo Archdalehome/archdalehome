@@ -25,20 +25,20 @@
       "category": "4 Dining Tables"
     },
     {
+      "path": "images/[5 Coffee Table] 大理石咖啡桌 (100x100x46cm)  5999元.jpg",
+      "name": "[5 Coffee Table] 大理石咖啡桌 (100x100x46cm)  5999元.jpg",
+      "title": "大理石咖啡桌",
+      "price": "5999",
+      "size": "100x100x46cm",
+      "category": "5 Coffee Table"
+    },
+    {
       "path": "images/[6 Pillows] 全麻印花布抱枕 (50x50cm)   599元.jpg",
       "name": "[6 Pillows] 全麻印花布抱枕 (50x50cm)   599元.jpg",
       "title": "全麻印花布抱枕",
       "price": "599",
       "size": "50x50cm",
       "category": "6 Pillows"
-    },
-    {
-      "path": "images/[7 Coffee Table] 大理石咖啡桌 (100x100x46cm)  5999元.jpg",
-      "name": "[7 Coffee Table] 大理石咖啡桌 (100x100x46cm)  5999元.jpg",
-      "title": "大理石咖啡桌",
-      "price": "5999",
-      "size": "100x100x46cm",
-      "category": "7 Coffee Table"
     }
   ]
 }
