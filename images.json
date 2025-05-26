@@ -1,20 +1,28 @@
 {
   "images": [
     {
-      "path": "images/[0 Sofa]9085 Roy Velvet Sofa(200x104x82).jpg",
-      "name": "[0 Sofa]9085 Roy Velvet Sofa(200x104x82).jpg",
+      "path": "images/[1 Sofa]2451 Greg Linen Slip-ocvver Sofa(210x86x82).jpg",
+      "name": "[1 Sofa]2451 Greg Linen Slip-ocvver Sofa(210x86x82).jpg",
+      "title": "2451 Greg Linen Slip-ocvver Sofa",
+      "price": "",
+      "size": "210x86x82",
+      "category": "1 Sofa"
+    },
+    {
+      "path": "images/[1 Sofa]9085 Roy Velvet Sofa(200x104x82).jpg",
+      "name": "[1 Sofa]9085 Roy Velvet Sofa(200x104x82).jpg",
       "title": "9085 Roy Velvet Sofa",
       "price": "",
       "size": "200x104x82",
-      "category": "0 Sofa"
+      "category": "1 Sofa"
     },
     {
-      "path": "images/[1 Accent chair]3135 Lexington Leather Chair (50x60x55cm).jpg",
-      "name": "[1 Accent chair]3135 Lexington Leather Chair (50x60x55cm).jpg",
+      "path": "images/[2 Accent chair]3135 Lexington Leather Chair (50x60x55cm).jpg",
+      "name": "[2 Accent chair]3135 Lexington Leather Chair (50x60x55cm).jpg",
       "title": "3135 Lexington Leather Chair",
       "price": "",
       "size": "50x60x55cm",
-      "category": "1 Accent chair"
+      "category": "2 Accent chair"
     },
     {
       "path": "images/[3 Ottoman] 6534 Fabric ottoman (40x40x50cm).jpg",
