@@ -17,20 +17,12 @@
       "category": "1 Accent chair"
     },
     {
-      "path": "images/[2 Ottoman] 6534 Fabric ottoman (40x40x50cm).jpg",
-      "name": "[2 Ottoman] 6534 Fabric ottoman (40x40x50cm).jpg",
+      "path": "images/[3 Ottoman] 6534 Fabric ottoman (40x40x50cm).jpg",
+      "name": "[3 Ottoman] 6534 Fabric ottoman (40x40x50cm).jpg",
       "title": "6534 Fabric ottoman",
       "price": "",
       "size": "40x40x50cm",
-      "category": "2 Ottoman"
-    },
-    {
-      "path": "images/[3 Coffee Table] 8376 Mephis Marble Coffee Table(100x100x46cm) .jpg",
-      "name": "[3 Coffee Table] 8376 Mephis Marble Coffee Table(100x100x46cm) .jpg",
-      "title": "8376 Mephis Marble Coffee Table",
-      "price": "",
-      "size": "100x100x46cm",
-      "category": "3 Coffee Table"
+      "category": "3 Ottoman"
     },
     {
       "path": "images/[4 Dining Tables]6309 Tim Rubber Wood Dining Table(200x98x78cm).jpg",
@@ -39,6 +31,14 @@
       "price": "",
       "size": "200x98x78cm",
       "category": "4 Dining Tables"
+    },
+    {
+      "path": "images/[5 Coffee Table] 8376 Mephis Marble Coffee Table(100x100x46cm) .jpg",
+      "name": "[5 Coffee Table] 8376 Mephis Marble Coffee Table(100x100x46cm) .jpg",
+      "title": "8376 Mephis Marble Coffee Table",
+      "price": "",
+      "size": "100x100x46cm",
+      "category": "5 Coffee Table"
     },
     {
       "path": "images/[6 Pillows]Sqare Fabric Pillow Cover(50x50cm).jpg",
