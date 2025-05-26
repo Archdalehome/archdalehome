@@ -1,6 +1,14 @@
 {
   "images": [
     {
+      "path": "images/[1 Sofa] 2569 Lisa Linen Slip-ocvver Sofa (220x95x85).jpg",
+      "name": "[1 Sofa] 2569 Lisa Linen Slip-ocvver Sofa (220x95x85).jpg",
+      "title": "2569 Lisa Linen Slip-ocvver Sofa",
+      "price": "",
+      "size": "220x95x85",
+      "category": "1 Sofa"
+    },
+    {
       "path": "images/[1 Sofa]2451 Greg Linen Slip-ocvver Sofa(210x86x82).jpg",
       "name": "[1 Sofa]2451 Greg Linen Slip-ocvver Sofa(210x86x82).jpg",
       "title": "2451 Greg Linen Slip-ocvver Sofa",
@@ -9,11 +17,11 @@
       "category": "1 Sofa"
     },
     {
-      "path": "images/[1 Sofa]9085 Roy Velvet Sofa(200x104x82).jpg",
-      "name": "[1 Sofa]9085 Roy Velvet Sofa(200x104x82).jpg",
+      "path": "images/[1 Sofa]9085 Roy Velvet Sofa(200x104x82cm).jpg",
+      "name": "[1 Sofa]9085 Roy Velvet Sofa(200x104x82cm).jpg",
       "title": "9085 Roy Velvet Sofa",
       "price": "",
-      "size": "200x104x82",
+      "size": "200x104x82cm",
       "category": "1 Sofa"
     },
     {
