@@ -1,6 +1,14 @@
 {
   "images": [
     {
+      "path": "images/[1 Accent chair][3135-1][Lexington][50x60x55].jpg",
+      "name": "[1 Accent chair][3135-1][Lexington][50x60x55].jpg",
+      "title": "[3135-1][Lexington][50x60x55]",
+      "price": "",
+      "size": "",
+      "category": "1 Accent chair"
+    },
+    {
       "path": "images/[2 Ottoman] 全棉割绒布储藏搁脚 (40x40x50cm)   959 元.jpg",
       "name": "[2 Ottoman] 全棉割绒布储藏搁脚 (40x40x50cm)   959 元.jpg",
       "title": "全棉割绒布储藏搁脚",
@@ -9,12 +17,12 @@
       "category": "2 Ottoman"
     },
     {
-      "path": "images/[3 Accent chair][3135-1][Lexington][50x60x55].jpg",
-      "name": "[3 Accent chair][3135-1][Lexington][50x60x55].jpg",
-      "title": "[3135-1][Lexington][50x60x55]",
-      "price": "",
-      "size": "",
-      "category": "3 Accent chair"
+      "path": "images/[3 Coffee Table] 大理石咖啡桌 (100x100x46cm)  5999元.jpg",
+      "name": "[3 Coffee Table] 大理石咖啡桌 (100x100x46cm)  5999元.jpg",
+      "title": "大理石咖啡桌",
+      "price": "5999",
+      "size": "100x100x46cm",
+      "category": "3 Coffee Table"
     },
     {
       "path": "images/[4 Dining Tables] 橡木餐桌 (200x98x78cm) 19800元.jpg",
@@ -23,14 +31,6 @@
       "price": "19800",
       "size": "200x98x78cm",
       "category": "4 Dining Tables"
-    },
-    {
-      "path": "images/[5 Coffee Table] 大理石咖啡桌 (100x100x46cm)  5999元.jpg",
-      "name": "[5 Coffee Table] 大理石咖啡桌 (100x100x46cm)  5999元.jpg",
-      "title": "大理石咖啡桌",
-      "price": "5999",
-      "size": "100x100x46cm",
-      "category": "5 Coffee Table"
     },
     {
       "path": "images/[6 Pillows] 全麻印花布抱枕 (50x50cm)   599元.jpg",
