@@ -1,6 +1,14 @@
 {
   "images": [
     {
+      "path": "images/[2 Ottoman] 全棉割绒布储藏搁脚 (40x40x50cm)   959 元.jpg",
+      "name": "[2 Ottoman] 全棉割绒布储藏搁脚 (40x40x50cm)   959 元.jpg",
+      "title": "全棉割绒布储藏搁脚",
+      "price": "959",
+      "size": "40x40x50cm",
+      "category": "2 Ottoman"
+    },
+    {
       "path": "images/[3 Accent chair][3135-1][Lexington][50x60x55].jpg",
       "name": "[3 Accent chair][3135-1][Lexington][50x60x55].jpg",
       "title": "[3135-1][Lexington][50x60x55]",
@@ -47,14 +55,6 @@
       "price": "599",
       "size": "50x50cm",
       "category": "6 Pillows"
-    },
-    {
-      "path": "images/S18309 全棉割绒布储藏搁脚 (40x40x50cm)   959 元.jpg",
-      "name": "S18309 全棉割绒布储藏搁脚 (40x40x50cm)   959 元.jpg",
-      "title": "S18309 全棉割绒布储藏搁脚",
-      "price": "959",
-      "size": "40x40x50cm",
-      "category": ""
     },
     {
       "path": "images/T20911 大理石咖啡桌 (100x100x46cm)  5999元.jpg",
