@@ -8,12 +8,19 @@ def get_image_files():
     images = []
     for filename in os.listdir(image_dir):
         if filename.lower().endswith((".jpg", ".jpeg", ".png", ".gif")):
-                    # 从文件名中提取价格信息
+            # 从文件名中提取信息
             price = ''
             title = filename
             size = ''
+            category = ''
             
-            # 1. 提取价格信息
+            # 1. 提取分类信息
+            category_match = re.search(r'^\[(.*?)\]', title)
+            if category_match:
+                category = category_match.group(1).strip()
+                title = re.sub(r'^\[.*?\]', '', title)
+            
+            # 2. 提取价格信息
             price_patterns = [
                 r'【(\d[\d,]*)元】',
                 r'\s+(\d[\d,]*)\s*元(?![^\(\)]*\))',
@@ -27,13 +34,13 @@ def get_image_files():
                     title = re.sub(pattern, '', title)
                     break
             
-            # 2. 提取尺寸信息
+            # 3. 提取尺寸信息
             size_match = re.search(r'\(((?![\d,]+元)[^\)]+)\)', title)
             if size_match:
                 size = size_match.group(1).strip()
                 title = re.sub(r'\([^\)]+\)', '', title)
             
-            # 3. 清理和格式化标题
+            # 4. 清理和格式化标题
             title = re.sub(r'\.(jpg|jpeg|png|gif)$', '', title, flags=re.I)
             title = re.sub(r'\s+', ' ', title)
             title = title.strip()
@@ -43,9 +50,20 @@ def get_image_files():
                 "name": filename,
                 "title": title,
                 "price": price,
-                "size": size
+                "size": size,
+                "category": category
             })
-    return images
+    
+    # 从category中提取数字前缀作为排序依据
+    def get_category_order(image):
+        category = image['category']
+        match = re.match(r'^(\d+)', category)
+        order = int(match.group(1)) if match else float('inf')
+        return (order, image['name'].lower())
+    
+    # 按category的数字前缀排序，然后按文件名字母顺序排序
+    sorted_images = sorted(images, key=get_category_order)
+    return sorted_images
 
 # 更新images.json文件
 def update_images_json():

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Archdale Home</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        .nav-bar {
+            background-color: white;
+            padding: 15px 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            font-size: 16px;
+            color: #333;
+            position: relative;
+        }
+
+        .nav-bar span {
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .nav-bar .menu-icon {
+            margin-right: 10px;
+            cursor: pointer;
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            padding: 4px;
+            border-radius: 4px;
+        }
+
+        .nav-bar .menu-icon:hover {
+            background-color: #f5f5f5;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 20px;
+            background-color: white;
+            min-width: 180px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 4px;
+            z-index: 1000;
+            padding: 8px 0;
+        }
+
+        .dropdown-menu.show {
+            display: block;
+            animation: fadeIn 0.2s ease;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 10px 20px;
+            color: #333;
+            text-decoration: none;
+            transition: background-color 0.2s;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #f5f5f5;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .about-section {
+            margin-bottom: 40px;
+        }
+
+        .about-section h1 {
+            color: #333;
+            font-size: 28px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .about-section p {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .about-image {
+            width: 100%;
+            max-width: 600px;
+            margin: 30px auto;
+            display: block;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .values-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 40px;
+        }
+
+        .value-card {
+            width: calc(33.333% - 20px);
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .value-card h3 {
+            color: #333;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .value-card p {
+            color: #666;
+            line-height: 1.5;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .value-card {
+                width: 100%;
+            }
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav-bar">
+        <span>
+            <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+            Archdale Home/About us
+        </span>
+        <div class="dropdown-menu" id="dropdownMenu">
+            <a href="index.html">Home</a>
+            <a href="about.html">About us</a>
+            <a href="products.html">Our Product</a>
+            <a href="contact.html">Contact us</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="about-section">
+            <h1>About Us</h1>
+            
+            <p>Archdale is a quiet town located in Highpoint, North Carolina, USA. Thanks to its unique geographical location as the "World Furniture Capital", it boasts a century-old history of furniture design and production, as well as experienced furniture artisans. Archdale Home was born here, specializing in the design and production of leisure home products.</p>
+            
+            <img src="pictures_about/AH_US_HQ.jpg" alt="Archdale Home Factory" class="about-image">
+            
+            <p>The headquarters of Archdale Home in the United States originated from the love of life and was inspired by the natural beauty and charm of North Carolina. Our furniture reflects the warmth and enthusiasm of life in the South. Each piece is meticulously crafted by skilled artisans who take pride in their artistry and attention to detail.</p>
+            
+            <p>We only use the highest quality materials and adopt sustainable development practices to ensure that our furniture is not only beautiful but also environmentally friendly. From the external fabric to the internal filling, each component has been carefully selected to stand the test of time and provide lasting comfort and durability. In 2015, we introduced the brand to the Chinese region for sales. With its unique design, exquisite quality and perfect after-sales service, it has won the love of many young consumers.</p>
+            
+            <h2>Our Mission</h2>
+            <p>To create beautiful, functional, and durable furniture that enhances living spaces and improves quality of life for our customers worldwide, while maintaining the highest standards of business ethics and environmental responsibility.</p>
+            
+            <h2>Our Vision</h2>
+            <p>To be recognized globally as a premier furniture manufacturer that sets industry standards for design innovation, quality craftsmanship, and sustainable practices.</p>
+        </div>
+        
+        <div class="values-section">
+            <div class="value-card">
+                <h3>Quality Excellence</h3>
+                <p>We are committed to delivering products of the highest quality. Every piece of furniture that leaves our factory undergoes rigorous quality checks to ensure durability, functionality, and aesthetic appeal.</p>
+            </div>
+            
+            <div class="value-card">
+                <h3>Customer Focus</h3>
+                <p>Our customers are at the heart of everything we do. We listen to their needs, respond to their feedback, and continuously strive to exceed their expectations through our products and services.</p>
+            </div>
+            
+            <div class="value-card">
+                <h3>Innovation</h3>
+                <p>We embrace innovation in our designs, materials, and manufacturing processes. Our design team stays abreast of global trends and incorporates new ideas to create furniture that is both contemporary and timeless.</p>
+            </div>
+            
+            <div class="value-card">
+                <h3>Integrity</h3>
+                <p>We conduct our business with honesty, transparency, and ethical practices. We honor our commitments to our customers, employees, partners, and the communities in which we operate.</p>
+            </div>
+            
+            <div class="value-card">
+                <h3>Sustainability</h3>
+                <p>We are committed to environmentally responsible practices. From sourcing materials to manufacturing processes, we strive to minimize our ecological footprint and contribute to a healthier planet.</p>
+            </div>
+            
+            <div class="value-card">
+                <h3>Teamwork</h3>
+                <p>We believe in the power of collaboration. Our success is built on the collective efforts of our diverse team, where every individual's contribution is valued and respected.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        © 2025 Archdale Home
+    </footer>
+
+    <script>
+        // 添加菜单切换功能
+        document.querySelector('.menu-icon').addEventListener('click', function(e) {
+            e.stopPropagation();
+            const dropdownMenu = document.getElementById('dropdownMenu');
+            dropdownMenu.classList.toggle('show');
+        });
+
+        // 点击页面其他地方关闭菜单
+        document.addEventListener('click', function() {
+            const dropdownMenu = document.getElementById('dropdownMenu');
+            if (dropdownMenu.classList.contains('show')) {
+                dropdownMenu.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>

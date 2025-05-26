@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Archdale Home</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        .nav-bar {
+            background-color: white;
+            padding: 15px 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            font-size: 16px;
+            color: #333;
+            position: relative;
+            border-radius: 8px;
+        }
+
+        .nav-bar span {
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .nav-bar .menu-icon {
+            margin-right: 10px;
+            cursor: pointer;
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            padding: 4px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-bar .menu-icon:hover {
+            background-color: #f5f5f5;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 20px;
+            background-color: white;
+            min-width: 180px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 4px;
+            z-index: 1000;
+            padding: 8px 0;
+        }
+
+        .dropdown-menu.show {
+            display: block;
+            animation: fadeIn 0.2s ease;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 10px 20px;
+            color: #333;
+            text-decoration: none;
+            transition: background-color 0.2s;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #f5f5f5;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        #root {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="nav-bar">
+        <span>
+            <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+            Archdale Home/Contact Us
+        </span>
+        <div class="dropdown-menu" id="dropdownMenu">
+            <a href="index.html">Home</a>
+            <a href="about.html">About us</a>
+            <a href="products.html">Our Product</a>
+            <a href="contact.html">Contact us</a>
+        </div>
+    </div>
+
+    <div id="root">
+        <div class="contact-container">
+            <h1>Contact Us</h1>
+            <div class="contact-form">
+                <h2>Send Inquiry</h2>
+                <form id="inquiryForm">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="4" required></textarea>
+                    </div>
+                    <button type="submit">Send</button>
+                </form>
+            </div><br>
+            <div class="contact-info">
+                <div class="info-section">
+                    <h2>China distribution center:</h2>
+                    <p> No.2 Xingluo Road, Yaqian Town, Xiaoshan District, Hangzhou City, Zhejiang Province, CN </p>
+                    <p>Jay@archdalehome.com</p>
+              </div>
+                <div class="info-section">
+                    <h2>US design center:</h2>
+                    <p> 1207 Corporation Dr, Archdale, NC 27263 US <br>
+                      barry@archdalehome.com  </p>
+                </div>
+            </div>
+        </div>
+        <style>
+            .contact-container {
+                max-width: 800px;
+                margin: 0 auto;
+            }
+            h1 {
+                text-align: center;
+                color: #333;
+                margin-bottom: 40px;
+            }
+            .contact-info {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 30px;
+                margin-bottom: 50px;
+            }
+            .info-section {
+                background: #f8f9fa;
+                padding: 20px;
+                border-radius: 8px;
+            }
+            .info-section h2 {
+                color: #2c3e50;
+                font-size: 1.2em;
+                margin-bottom: 15px;
+            }
+            .info-section p {
+                color: #666;
+                margin: 5px 0;
+            }
+            .contact-form {
+                background: #f8f9fa;
+                padding: 30px;
+                border-radius: 8px;
+            }
+            .form-group {
+                margin-bottom: 20px;
+            }
+            label {
+                display: block;
+                margin-bottom: 8px;
+                color: #2c3e50;
+            }
+            input, textarea {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                font-size: 16px;
+            }
+            textarea {
+                resize: vertical;
+            }
+            button {
+                background: #2c3e50;
+                color: white;
+                padding: 12px 24px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                font-size: 16px;
+                transition: background 0.3s;
+            }
+            button:hover {
+                background: #34495e;
+            }
+            @media (max-width: 768px) {
+                .contact-info {
+                    grid-template-columns: 1fr;
+                }
+                #root {
+                    padding: 20px;
+                }
+            }
+        </style>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        // 初始化EmailJS
+        (function() {
+            try {
+                emailjs.init("HLbs9qc6BCnaZVw8u");
+                console.log('EmailJS 初始化成功，当前环境:', window.location.hostname);
+            } catch (error) {
+                console.error('EmailJS 初始化失败:', error);
+                // 显示初始化错误提示
+                const errorMessage = document.createElement('div');
+                errorMessage.style.cssText = 'position: fixed; top: 20px; left: 50%; transform: translateX(-50%); background-color: #f44336; color: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); z-index: 1000;';
+                errorMessage.textContent = 'EmailJS服务初始化失败，请稍后再试';
+                document.body.appendChild(errorMessage);
+                setTimeout(() => errorMessage.remove(), 5000);
+            }
+        })();
+
+        // 表单提交处理
+        document.getElementById('inquiryForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const submitButton = e.target.querySelector('button[type="submit"]');
+            submitButton.disabled = true;
+            submitButton.textContent = '发送中...';
+
+            const templateParams = {
+                from_name: document.getElementById('name').value,
+                from_email: document.getElementById('email').value,
+                message: document.getElementById('message').value,
+                to_email: 'sales@hanleidehome.com'
+            };
+
+            console.log('正在发送邮件...', {
+                环境: window.location.hostname,
+                模板参数: templateParams,
+                EmailJS状态: emailjs ? '已加载' : '未加载'
+            });
+
+            if (!emailjs) {
+                console.error('EmailJS未正确加载');
+                const errorMessage = document.createElement('div');
+                errorMessage.style.cssText = 'position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: #f44336; color: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); z-index: 1000;';
+                errorMessage.textContent = 'EmailJS服务未正确加载，请刷新页面后重试';
+                document.body.appendChild(errorMessage);
+                setTimeout(() => errorMessage.remove(), 3000);
+                submitButton.disabled = false;
+                submitButton.textContent = 'Send';
+                return;
+            }
+
+            emailjs.send('service_ygcz5ga', 'template_smvljf6', templateParams)
+                .then(function(response) {
+                    console.log('邮件发送成功:', {
+                        响应: response,
+                        状态: response.status,
+                        文本: response.text
+                    });
+                    const successMessage = document.createElement('div');
+                    successMessage.style.cssText = 'position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: #4CAF50; color: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); z-index: 1000;';
+                    successMessage.textContent = '消息发送成功！我们会尽快回复您。';
+                    document.body.appendChild(successMessage);
+                    setTimeout(() => successMessage.remove(), 3000);
+                    document.getElementById('inquiryForm').reset();
+                })
+                .catch(function(error) {
+                    console.error('邮件发送失败:', {
+                        错误: error,
+                        错误信息: error.text,
+                        环境: window.location.hostname,
+                        状态: error.status
+                    });
+                    const errorMessage = document.createElement('div');
+                    errorMessage.style.cssText = 'position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: #f44336; color: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); z-index: 1000;';
+                    errorMessage.textContent = '发送失败：' + (error.text || '请检查网络连接后重试');
+                    document.body.appendChild(errorMessage);
+                    setTimeout(() => errorMessage.remove(), 3000);
+                })
+                .finally(function() {
+                    submitButton.disabled = false;
+                    submitButton.textContent = 'Send';
+                });
+        });
+
+        // 添加菜单切换功能
+        document.querySelector('.menu-icon').addEventListener('click', function(e) {
+            e.stopPropagation();
+            const dropdownMenu = document.getElementById('dropdownMenu');
+            dropdownMenu.classList.toggle('show');
+        });
+
+        // 点击页面其他地方关闭菜单
+        document.addEventListener('click', function() {
+            const dropdownMenu = document.getElementById('dropdownMenu');
+            if (dropdownMenu.classList.contains('show')) {
+                dropdownMenu.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>
