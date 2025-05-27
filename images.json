@@ -1,14 +1,6 @@
 {
   "images": [
     {
-      "path": "images/[1 Chair] 2302 Fiona Cotton Fabric Chair(81x81x77cm).jpg",
-      "name": "[1 Chair] 2302 Fiona Cotton Fabric Chair(81x81x77cm).jpg",
-      "title": "2302 Fiona Cotton Fabric Chair",
-      "price": "",
-      "size": "81x81x77cm",
-      "category": "1 Chair"
-    },
-    {
       "path": "images/[1 Sofa] 2066 Benjamin Cotton Fabric Sofa (230x100x82cm).jpg",
       "name": "[1 Sofa] 2066 Benjamin Cotton Fabric Sofa (230x100x82cm).jpg",
       "title": "2066 Benjamin Cotton Fabric Sofa",
@@ -118,6 +110,14 @@
       "title": "2168 Betty Cotton Fabric Chair",
       "price": "",
       "size": "68x83x82cm",
+      "category": "2 Chair"
+    },
+    {
+      "path": "images/[2 Chair] 2302 Fiona Cotton Fabric Chair(81x81x77cm).jpg",
+      "name": "[2 Chair] 2302 Fiona Cotton Fabric Chair(81x81x77cm).jpg",
+      "title": "2302 Fiona Cotton Fabric Chair",
+      "price": "",
+      "size": "81x81x77cm",
       "category": "2 Chair"
     },
     {
