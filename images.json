@@ -9,14 +9,6 @@
       "category": "1 Sofa"
     },
     {
-      "path": "images/[1 Sofa] 2109 Cali Linen Fabric Sofa (218x92x86).jpg",
-      "name": "[1 Sofa] 2109 Cali Linen Fabric Sofa (218x92x86).jpg",
-      "title": "2109 Cali Linen Fabric Sofa",
-      "price": "",
-      "size": "218x92x86",
-      "category": "1 Sofa"
-    },
-    {
       "path": "images/[1 Sofa] 2151 Greg Linen Fabric Sofa(210x86x82).jpg",
       "name": "[1 Sofa] 2151 Greg Linen Fabric Sofa(210x86x82).jpg",
       "title": "2151 Greg Linen Fabric Sofa",
@@ -62,6 +54,14 @@
       "title": "2302 Fiona Cotton Fabric Sofa",
       "price": "",
       "size": "210x81x77cm",
+      "category": "1 Sofa"
+    },
+    {
+      "path": "images/[1 Sofa] 2309 Cali Linen Fabric Sofa (218x92x86).jpg",
+      "name": "[1 Sofa] 2309 Cali Linen Fabric Sofa (218x92x86).jpg",
+      "title": "2309 Cali Linen Fabric Sofa",
+      "price": "",
+      "size": "218x92x86",
       "category": "1 Sofa"
     },
     {
