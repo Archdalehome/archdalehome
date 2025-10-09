@@ -1,10 +1,10 @@
 {
   "images": [
     {
-      "path": "images/[1 Sofa] 1902-60 Harry Leather Sofa 11999 RMB(220x90x86cm).jpg",
-      "name": "[1 Sofa] 1902-60 Harry Leather Sofa 11999 RMB(220x90x86cm).jpg",
-      "title": "1902-60 Harry Leather Sofa 11999 RMB",
-      "price": "",
+      "path": "images/[1 Sofa] 1902-60 Harry Leather Sofa 11999 元(220x90x86cm).jpg",
+      "name": "[1 Sofa] 1902-60 Harry Leather Sofa 11999 元(220x90x86cm).jpg",
+      "title": "1902-60 Harry Leather Sofa",
+      "price": "11999",
       "size": "220x90x86cm",
       "category": "1 Sofa"
     },
