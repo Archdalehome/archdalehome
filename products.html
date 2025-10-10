@@ -412,10 +412,15 @@
             const productLink = formData.get('productLink');
             
             // 构建邮件内容
-            const mailtoBody = `姓名: ${name}%0D%0A邮箱: ${email}%0D%0A电话: ${phone}%0D%0A留言: ${message}%0D%0A产品链接: ${productLink}`;
+            const subject = encodeURIComponent('产品购买请求');
+            const body = encodeURIComponent(`姓名: ${name}\n邮箱: ${email}\n电话: ${phone}\n留言: ${message}\n产品链接: ${productLink}`);
             
-            // 打开邮件客户端
-            window.location.href = `mailto:info@archdalehome.com?subject=产品购买请求&body=${mailtoBody}`;
+            // 使用与contact.html相同的邮件发送方式
+            const mailtoLink = `mailto:info@archdalehome.com?subject=${subject}&body=${body}`;
+            window.location.href = mailtoLink;
+            
+            // 显示提交成功消息
+            alert('您的购买请求已提交，我们将尽快与您联系！');
             
             // 关闭表单
             closeBuyForm();
