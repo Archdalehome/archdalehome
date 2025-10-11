@@ -315,7 +315,7 @@
     <div class="form-modal" id="buyFormModal">
         <div class="form-container">
             <div class="form-header">
-                <div class="form-title">购买产品</div>
+                <div class="form-title">我选的产品</div>
                 <button class="close-button" id="closeFormButton">&times;</button>
             </div>
             <form id="buyForm">
@@ -332,11 +332,11 @@
                     <input type="tel" id="phone" name="phone" required>
                 </div>
                 <div class="form-group">
-                    <label for="message">留言</label>
+                    <label for="message">收货地址及备注</label>
                     <textarea id="message" name="message"></textarea>
                 </div>
                 <input type="hidden" id="productLink" name="productLink">
-                <button type="submit" class="submit-button">提交订单</button>
+                <button type="submit" class="submit-button">提交意向订单</button>
             </form>
         </div>
     </div>
@@ -431,7 +431,7 @@
                 phone: document.getElementById('phone').value,
                 message: document.getElementById('message').value,
                 product_link: document.getElementById('productLink').value,
-                to_email: 'sales@hanleidehome.com'
+                to_email: 'info@archdalehome.com'
             };
 
             console.log('正在发送邮件...', {
