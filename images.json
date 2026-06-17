@@ -153,11 +153,35 @@
       "category": "2 Chair 休闲椅"
     },
     {
+      "path": "images/[3 Bed 床] 2312 Anita wood Bed 6999 元(200x223x122cm).jpg",
+      "name": "[3 Bed 床] 2312 Anita wood Bed 6999 元(200x223x122cm).jpg",
+      "title": "2312 Anita wood Bed",
+      "price": "6999",
+      "size": "200x223x122cm",
+      "category": "3 Bed 床"
+    },
+    {
+      "path": "images/[3 Bed 床] 2413 Casper wood Bed 6899 元(200x220x116cm).jpg",
+      "name": "[3 Bed 床] 2413 Casper wood Bed 6899 元(200x220x116cm).jpg",
+      "title": "2413 Casper wood Bed",
+      "price": "6899",
+      "size": "200x220x116cm",
+      "category": "3 Bed 床"
+    },
+    {
       "path": "images/[3 Bed 床] 2533 Dora Cotton Slip-cover Bed 4999 元(225x240x70cm).jpg",
       "name": "[3 Bed 床] 2533 Dora Cotton Slip-cover Bed 4999 元(225x240x70cm).jpg",
       "title": "2533 Dora Cotton Slip-cover Bed",
       "price": "4999",
       "size": "225x240x70cm",
+      "category": "3 Bed 床"
+    },
+    {
+      "path": "images/[3 Bed 床] 2654 Baila wood Bed 6699 元(200x222x118cm).jpg",
+      "name": "[3 Bed 床] 2654 Baila wood Bed 6699 元(200x222x118cm).jpg",
+      "title": "2654 Baila wood Bed",
+      "price": "6699",
+      "size": "200x222x118cm",
       "category": "3 Bed 床"
     },
     {
